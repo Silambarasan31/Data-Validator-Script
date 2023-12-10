@@ -21,8 +21,8 @@ try:
             df_source[col].replace({'':'Empty',np.nan:'Empty','None':'Empty'},inplace = True)
         # Detecting the encoding type
         with open('city_target.csv','rb') as file:
-            encoding_type =  cd.detect(file.read())
-        df_target = pd.read_csv('city_target.csv',delimiter = ',',encoding=encoding_type['encoding'])
+            encoding_type =  cd.detect(file.read())['encoding']
+        df_target = pd.read_csv('city_target.csv',delimiter = ',',encoding=encoding_type)
         # converting NaN to 'Empty'
         for col in df_target.columns:
             df_target[col].replace({'':'Empty',np.nan:'Empty','None':'Empty'},inplace = True)
