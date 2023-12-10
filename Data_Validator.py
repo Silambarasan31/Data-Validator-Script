@@ -10,7 +10,7 @@ try:
     if connection.is_connected():
         cursor = connection.cursor()
         cursor.execute('select * from city')
-       
+        #fetch all record for the executed query
         record = cursor.fetchall()
 
         column_names = [desc[0] for desc in cursor.description]
